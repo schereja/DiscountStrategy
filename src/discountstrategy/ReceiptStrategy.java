@@ -8,6 +8,6 @@ package discountstrategy;
  *
  * @author schereja
  */
-public class flatRateDiscount {
-    
+public interface ReceiptStrategy {
+    public String getReceipt();
 }
