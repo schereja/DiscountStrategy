@@ -74,5 +74,10 @@ public class ClothingProduct implements ProductInformation{
     public String getProductId() {
         return productId;
     }
+
+    @Override
+    public double calculateProductPrice(double qty) {
+        return discountStrategy.calculateProductDiscount(productPrice)* qty;
+    }
     
 }

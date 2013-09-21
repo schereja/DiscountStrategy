@@ -20,5 +20,10 @@ public class FlatRateDiscount implements DiscountStrategy{
         
         this.discountRate = discountPercent/100;
     }
+
+    @Override
+    public double calculateProductDiscount(double price) {
+      return price * discountRate;
+    }
     
 }

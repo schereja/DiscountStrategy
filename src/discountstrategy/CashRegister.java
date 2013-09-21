@@ -15,7 +15,7 @@ public class CashRegister {
         setTotalSales(0.0);
     }
     public void beginNewSale(){
-        invoice = new R
+        
         //Go to customer database to pass customer account number
         
         //create receipt from what bought
@@ -23,4 +23,13 @@ public class CashRegister {
         //add LineItems to the receipt.
         
     }
+
+    public double getTotalSales() {
+        return totalSales;
+    }
+
+    public void setTotalSales(double totalSales) {
+        this.totalSales = totalSales;
+    }
+    
 }
