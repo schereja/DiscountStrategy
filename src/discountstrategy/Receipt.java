@@ -8,7 +8,6 @@ package discountstrategy;
  *
  * @author schereja
  */
-public class LineItem{ 
-    private ProductInformation product;
+public class Receipt {
     
 }
