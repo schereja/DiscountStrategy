@@ -9,10 +9,12 @@ package discountstrategy;
  * @author schereja
  */
 public interface DatabaseStrategy {
-  public String getId();
-  public String getName();
-  public void setId(String id);
-  public void setName(String name);
-  public void addToDatabase(String productId, String productName, String productDescription, double productPrice, DiscountStrategy discount);
-  public void removeFromDatabase();
+  //Getters
+  public abstract String getId();
+  public abstract String getName(String id);
+  //Setters
+  public abstract void setId(String id);
+  public abstract void setName(String name);
+  //Method to remove based on ID
+  public abstract void removeFromDatabase(String Id);
 }

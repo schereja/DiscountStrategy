@@ -9,27 +9,30 @@ package discountstrategy;
  * @author schereja
  */
 public class CashRegister {
-    private double totalSales;
-    
-    public CashRegister(){
-        setTotalSales(0.0);
-    }
-    public void beginNewSale(){
-        
-        //Go to customer database to pass customer account number
-        
-        //create receipt from what bought
-        
-        //add LineItems to the receipt.
-        
-    }
-
-    public double getTotalSales() {
-        return totalSales;
-    }
-
-    public void setTotalSales(double totalSales) {
-        this.totalSales = totalSales;
-    }
-    
+  private double totalSales;
+  private ReceiptStrategy invoice;
+  public CashRegister(){
+      setTotalSales(0.00);
+  }
+  public void startNewSale(String customerId){
+      invoice = new Receipt(customerId);
+ 
+  }
+  
+  public void addNewLineItem(String productId, int qty){
+      invoice.addItem(productId, qty);
+      
+  }
+  
+  public final void endSale(){
+      
+  }
+  
+  public final void printInvoice(){
+      invoice.getReceipt();
+      
+  }
+   public void setTotalSales(double totalSales){
+       this.totalSales = totalSales;
+   }
 }

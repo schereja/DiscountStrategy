@@ -8,9 +8,12 @@ package discountstrategy;
  *
  * @author schereja
  */
-public class FlatRateDiscount implements DiscountStrategy{
-    private double discountRate = 0.05;
+public class QtyDiscount implements DiscountStrategy{
+    private double discountRate = .05;
     
+    public QtyDiscount(int qty, double unitPrice){
+        
+    }
     @Override
     public double getDiscountRate() {
         return discountRate;

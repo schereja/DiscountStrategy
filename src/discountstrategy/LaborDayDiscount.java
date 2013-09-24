@@ -25,5 +25,6 @@ private double discountRate = 0.25;
     public double calculateProductDiscount(double price) {
       return price * discountRate;
     }
+
     
 }
