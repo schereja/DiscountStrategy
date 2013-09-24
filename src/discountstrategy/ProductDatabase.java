@@ -12,7 +12,7 @@ public class ProductDatabase implements DatabaseStrategy{
     public ProductDatabase(String productId){
         System.out.println(getName(productId));
     }
-    private ProductInformation[] products = {
+    private ProductStrategy[] products = {
         new ClothingProduct("P1011", "Big Bang Shirt", "Shirt with Big Bang Theory on it.", 12.00, new LaborDayDiscount()),
         new ClothingProduct("P1012", "Shorts", "Adult Shorts", 25.00, new FlatRateDiscount()),
         new ClothingProduct("P1013", "Diamond Tie", "Tie with Diamonds", 10.00, new LaborDayDiscount()),

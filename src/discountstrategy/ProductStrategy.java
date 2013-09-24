@@ -8,7 +8,7 @@ package discountstrategy;
  *
  * @author schereja
  */
-public interface ProductInformation {
+public interface ProductStrategy {
     
     public double calculateProductPrice(double qty);
     //Setters for the products

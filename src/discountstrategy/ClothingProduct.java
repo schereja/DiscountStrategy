@@ -8,7 +8,7 @@ package discountstrategy;
  *
  * @author schereja
  */
-public class ClothingProduct implements ProductInformation{
+public class ClothingProduct implements ProductStrategy{
     private double productPrice;
     private String productDescription;
     private String productName;

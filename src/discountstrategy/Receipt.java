@@ -10,11 +10,13 @@ package discountstrategy;
  */
 public class Receipt implements ReceiptStrategy{
     private CustomerDatabase customer;
-    private LineItem[] lineItems;
+    private ReceiptStrategy[] lineItems;
     private String customerName;
+    
     public Receipt(String customerId){
         customer = new CustomerDatabase(customerId);
         System.out.println(customer.getName(customerId));
+        lineItems = new LineItem[0];
         
     }
     @Override
@@ -24,17 +26,21 @@ public class Receipt implements ReceiptStrategy{
 
     @Override
     public String getReceipt() {
-        System.out.println(lineItems[1]);
-        return customerName;
+       return "hello world";
     }
 
     @Override
-    public void addItem(String productId, int qty) {
-      ProductDatabase product =  new ProductDatabase(productId);
-      LineItem item = new LineItem(product.getId(productId), product.getName(productId), 12);
+    public final void addItem(String productId, int qty) {
+        ReceiptStrategy newItem = new LineItem(productId, 2);
+        ReceiptStrategy[] tempArray = new ReceiptStrategy[lineItems.length+ 1];
+        for(int i = 0;i<lineItems.length; i++){
+            tempArray[i] = lineItems[i];
+        }
+        tempArray[tempArray.length - 1] = newItem;
         
-        
+        lineItems = tempArray;
                 
+        
     }
     public String getCustomer(String customerId){
         this.customerName = customer.getName(customerId);
