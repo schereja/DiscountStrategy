@@ -9,6 +9,15 @@ package discountstrategy;
  * @author schereja
  */
 public class LineItem{ 
-    private ProductInformation product;
+    private ProductDatabase product;
+
+    public ProductDatabase getProduct() {
+        return product;
+    }
+
+    public void setProduct(ProductDatabase product) {
+        this.product = product;
+    }
+    
     
 }

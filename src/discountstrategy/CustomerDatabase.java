@@ -28,7 +28,6 @@ public final class CustomerDatabase implements DatabaseStrategy,CustomerInformat
 
     @Override
     public String getName(String customerId) {
-        System.out.println(customerId);
        
         String custName = null;
         for(int i =0;i<customers.length; i++){

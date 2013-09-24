@@ -9,7 +9,9 @@ package discountstrategy;
  * @author schereja
  */
 public class ProductDatabase implements DatabaseStrategy{
-    
+    public ProductDatabase(String productId){
+        System.out.println(getName(productId));
+    }
     private ProductInformation[] products = {
         new ClothingProduct("P1011", "Big Bang Shirt", "Shirt with Big Bang Theory on it.", 12.00, new LaborDayDiscount()),
         new ClothingProduct("P1012", "Shorts", "Adult Shorts", 25.00, new FlatRateDiscount()),
@@ -35,11 +37,17 @@ public class ProductDatabase implements DatabaseStrategy{
 
     @Override
     public void removeFromDatabase(String Id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public String getName(String id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String prodName = null;
+        for(int i =0;i<products.length; i++){
+            if (id.equals(products[i].getProductId())){
+                prodName = products[i].getProductName();
+            } 
+        }
+        return prodName;
     }
 }

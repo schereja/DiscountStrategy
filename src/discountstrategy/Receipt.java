@@ -24,13 +24,17 @@ public class Receipt implements ReceiptStrategy{
 
     @Override
     public String getReceipt() {
-        
+        System.out.println(lineItems[1]);
         return customerName;
     }
 
     @Override
     public void addItem(String productId, int qty) {
+      ProductDatabase product =  new ProductDatabase(productId);
+        lineItems[1].setProduct(product);
         
+        
+                
     }
     public String getCustomer(String customerId){
         this.customerName = customer.getName(customerId);

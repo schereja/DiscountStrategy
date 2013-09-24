@@ -17,12 +17,13 @@ public class StartUp {
     public static void main(String[] args) {
         CashRegister cr = new CashRegister();
         cr.startNewSale("C1014");
-        cr.printInvoice();
-        /*
+        
+        
         cr.addNewLineItem("P1011", 2);
         cr.addNewLineItem("P1012", 3);
         cr.addNewLineItem("P1013", 5);
-        cr.endSale();
+        cr.printInvoice();
+        /*cr.endSale();
         cr.printInvoice();*/
     }
 }
