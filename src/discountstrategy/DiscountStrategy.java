@@ -6,14 +6,11 @@ package discountstrategy;
 
 /**
  *
- * @author root
+ * @author schereja
  */
-public class DiscountStrategy {
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
-    }
+public interface DiscountStrategy {
+ 
+    public abstract double calculateProductDiscount(double price);
+    public double getDiscountRate();
+    public void setDiscountRate(double discountPercent);
 }
