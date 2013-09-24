@@ -22,7 +22,7 @@ public final class CustomerDatabase implements DatabaseStrategy,CustomerInformat
         setId(customerId);
     }
     @Override
-    public String getId() {
+    public String getId(String id) {
         return customerId;
     }
 

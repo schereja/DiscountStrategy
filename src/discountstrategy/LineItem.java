@@ -10,6 +10,9 @@ package discountstrategy;
  */
 public class LineItem{ 
     private ProductDatabase product;
+    public LineItem(String productId, String productName, double productPrice){
+        
+    }
 
     public ProductDatabase getProduct() {
         return product;

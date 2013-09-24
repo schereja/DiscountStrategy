@@ -31,7 +31,7 @@ public class Receipt implements ReceiptStrategy{
     @Override
     public void addItem(String productId, int qty) {
       ProductDatabase product =  new ProductDatabase(productId);
-        lineItems[1].setProduct(product);
+      LineItem item = new LineItem(product.getId(productId), product.getName(productId), 12);
         
         
                 
