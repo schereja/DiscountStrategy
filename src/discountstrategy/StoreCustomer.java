@@ -8,26 +8,10 @@ package discountstrategy;
  *
  * @author schereja
  */
-public class StoreCustomer implements CustomerInformation{
+public class StoreCustomer extends CustomerInformation{
 
-    @Override
-    public void setCustomerId(String customerId) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+     public StoreCustomer(String customerId, String customerName){
+        setCustomerId(customerId);
+        setCustomerName(customerName);
     }
-
-    @Override
-    public void setCustomerName(String customerName) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public String getCustomerName() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public String getCustomerId() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
 }

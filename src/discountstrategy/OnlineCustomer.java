@@ -8,7 +8,7 @@ package discountstrategy;
  *
  * @author schereja
  */
-public class OnlineCustomer implements CustomerInformation{
+public class OnlineCustomer extends CustomerInformation{
     private String customerId;
     private String customerName;
     
@@ -16,24 +16,7 @@ public class OnlineCustomer implements CustomerInformation{
         setCustomerId(customerId);
         setCustomerName(customerName);
     }
-    @Override
-    public void setCustomerId(String customerId) {
-       this.customerId = customerId;
-    }
-
-    @Override
-    public void setCustomerName(String customerName) {
-        this.customerName = customerName;
-    }
-
-    @Override
-    public String getCustomerName() {
-        return customerName;
-    }
-
-    @Override
-    public String getCustomerId() {
-        return customerId;
-    }
+  
+    
     
 }

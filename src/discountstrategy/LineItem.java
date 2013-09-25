@@ -8,7 +8,7 @@ package discountstrategy;
  *
  * @author schereja
  */
-public class LineItem implements ProductStrategy, ReceiptStrategy{ 
+public class LineItem extends ProductInformation{ 
     private ProductDatabase product;
     private int qty;
     private double productPrice;
@@ -73,21 +73,4 @@ public class LineItem implements ProductStrategy, ReceiptStrategy{
     public String getProductId() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
-    @Override
-    public double getTotal() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public String getReceipt() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void addItem(String productId, int qty) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
-    
 }

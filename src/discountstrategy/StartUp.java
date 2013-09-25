@@ -18,12 +18,11 @@ public class StartUp {
         CashRegister cr = new CashRegister();
         cr.startNewSale("C1014");
         
-        
+        /*
         cr.addNewLineItem("P1011", 2);
         cr.addNewLineItem("P1012", 3);
         cr.addNewLineItem("P1013", 5);
-        cr.printInvoice();
-        /*cr.endSale();
+        cr.endSale();
         cr.printInvoice();*/
     }
 }

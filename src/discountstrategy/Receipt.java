@@ -16,7 +16,7 @@ public class Receipt implements ReceiptStrategy{
     public Receipt(String customerId){
         customer = new CustomerDatabase(customerId);
         System.out.println(customer.getName(customerId));
-        lineItems = new LineItem[0];
+        //lineItems = new LineItem[0];
         
     }
     @Override
@@ -38,12 +38,12 @@ public class Receipt implements ReceiptStrategy{
 
     @Override
     public final void addItem(String productId, int qty) {
-        ReceiptStrategy newItem = new LineItem(productId, qty);
+       // ReceiptStrategy newItem = new LineItem(productId, qty);
         ReceiptStrategy[] tempArray = new ReceiptStrategy[lineItems.length+ 1];
         for(int i = 0;i<lineItems.length; i++){
             tempArray[i] = lineItems[i];
         }
-        tempArray[tempArray.length - 1] = newItem;
+        //tempArray[tempArray.length - 1] = newItem;
         
         lineItems = tempArray;
                 

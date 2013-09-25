@@ -8,12 +8,21 @@ package discountstrategy;
  *
  * @author schereja
  */
-public interface CustomerInformation {
-    //Setters for the customer
-    public void setCustomerId(String customerId);
-    public void setCustomerName(String customerName);
-    
-    //Getters for products
-    public String getCustomerName();
-    public String getCustomerId();
+public abstract class CustomerInformation {
+    private String customerId;
+    private String customerName;
+    public void setCustomerId(String customerId) {
+       this.customerId = customerId;
+    }
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
+    }
+
+    public String getCustomerName() {
+        return customerName;
+    }
+
+    public String getCustomerId() {
+        return customerId;
+    }
 }

@@ -10,7 +10,7 @@ package discountstrategy;
  */
 public interface DatabaseStrategy {
   //Getters
-  public abstract String getId(String id);
+  public abstract String getId();
   public abstract String getName(String id);
   //Setters
   public abstract void setId(String id);
