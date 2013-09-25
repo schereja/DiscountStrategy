@@ -18,7 +18,15 @@ public class ProductDatabase implements DatabaseStrategy{
         new ClothingProduct("P1013", "Diamond Tie", "Tie with Diamonds", 10.00, new LaborDayDiscount()),
         new ClothingProduct("P1014", "Nike Shoes", "Nike Shoes", 12.00, new FlatRateDiscount())
         };
-
+    public double getProductPrice(String id){
+        double prodPrice = 0;
+        for(int i =0;i<products.length; i++){
+            if (id.equals(products[i].getProductId())){
+                prodPrice = products[i].getProductPrice();
+            } 
+        }
+        return prodPrice;
+    }
     @Override
     public String getId(String id) {
      return null;

@@ -26,12 +26,19 @@ public class Receipt implements ReceiptStrategy{
 
     @Override
     public String getReceipt() {
+        String invoiceOutput = null;
+        for(int i = 0; i < lineItems.length; i++){
+            String prodID, prodName;
+            
+                    
+        }
+        System.out.println();
        return "hello world";
     }
 
     @Override
     public final void addItem(String productId, int qty) {
-        ReceiptStrategy newItem = new LineItem(productId, 2);
+        ReceiptStrategy newItem = new LineItem(productId, qty);
         ReceiptStrategy[] tempArray = new ReceiptStrategy[lineItems.length+ 1];
         for(int i = 0;i<lineItems.length; i++){
             tempArray[i] = lineItems[i];

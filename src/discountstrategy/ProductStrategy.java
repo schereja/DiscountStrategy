@@ -10,7 +10,7 @@ package discountstrategy;
  */
 public interface ProductStrategy {
     
-    public double calculateProductPrice(double qty);
+    public void calculateProductPrice(String productId, double qty);
     //Setters for the products
     public void setProductPrice(double productPrice);
     public void setProductDescription(String productDescription);

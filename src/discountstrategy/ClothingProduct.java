@@ -76,8 +76,8 @@ public class ClothingProduct implements ProductStrategy{
     }
 
     @Override
-    public double calculateProductPrice(double qty) {
-        return discountStrategy.calculateProductDiscount(productPrice)* qty;
+    public void calculateProductPrice(String productId, double qty) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

@@ -10,21 +10,18 @@ package discountstrategy;
  */
 public class LineItem implements ProductStrategy, ReceiptStrategy{ 
     private ProductDatabase product;
-    public LineItem(String productId, double productPrice){
+    private int qty;
+    private double productPrice;
+    public LineItem(String productId, int qty){
+        product = new ProductDatabase(productId);
+        calculateProductPrice(productId, qty);
+        System.out.println(productPrice);
         
     }
-
-    public ProductDatabase getProduct() {
-        return product;
-    }
-
-    public void setProduct(ProductDatabase product) {
-        this.product = product;
-    }
-
     @Override
-    public double calculateProductPrice(double qty) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void calculateProductPrice(String productId, double qty) {
+        this.productPrice = qty* product.getProductPrice(productId);
+      
     }
 
     @Override
