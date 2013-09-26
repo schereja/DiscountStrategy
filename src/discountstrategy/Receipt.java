@@ -14,6 +14,7 @@ public class Receipt implements ReceiptStrategy{
     private String customerName;
     private ProductStrategy product;
     private double totalSales;
+    
     public Receipt(String customerId){
         customer = new CustomerDatabase(customerId);
         System.out.println(customer.getName(customerId));
@@ -28,23 +29,24 @@ public class Receipt implements ReceiptStrategy{
     @Override
     public String getReceipt() {
         String invoiceOutput = null;
-        System.out.println("ID     Name     Description     Unit Price");
+        System.out.println("ID\t Name\t\t     Description \t\t    Unit Price:\tQTY:\tPrice After Discount:");
         for(int i = 0; i <= lineItems.length - 1; i++){
             String prodID, prodName, prodDesc;
             double prodPrice, prodDiscount;
-            int qty;
+            int prodQty;
             prodID = lineItems[i].getProductId();
             prodName = lineItems[i].getProductName(prodID);
             prodPrice = lineItems[i].getProductPrice(prodID);
             prodDesc = lineItems[i].getProductDescription(prodID);
-            //prodQty = lineItems[i].getQty();
+            prodQty = lineItems[i].getQty();
             prodDiscount = lineItems[i].getProductPriceAfterDiscount(prodID);
-            System.out.println(prodID + "   " + prodName + "   " + prodDesc + "   " + prodPrice + " " + prodDiscount);
+     
+            System.out.println(prodID + "  \t " + prodName + " \t  " + prodDesc + " \t  " + prodPrice + "\t " + prodQty + " " +prodDiscount);
             totalSales += prodPrice;
             
                     
         }
-        System.out.println(totalSales);
+        System.out.println("\t\t\t\t\t\t\t\t" + totalSales);
        return invoiceOutput;
     }
 

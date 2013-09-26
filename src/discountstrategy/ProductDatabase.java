@@ -25,6 +25,18 @@ public class ProductDatabase extends ProductStrategy implements DatabaseStrategy
         new ClothingProduct("P1013", "Diamond Tie", "Tie with Diamonds", 10.00, new LaborDayDiscount(productPrice)),
         new ClothingProduct("P1014", "Nike Shoes", "Nike Shoes", 12.00, new FlatRateDiscount(productPrice))
         };
+
+    public DiscountStrategy getDiscountApplied(String id) {
+        DiscountStrategy productDiscountApplied = null;
+        double prodDiscountRate;
+        for(int i = 0; i< products.length; i++){
+            if (productId.equals(products[i].getProductId())){
+                productDiscountApplied = products[i].getProductApplied(productId);
+                
+            }
+        }
+        return productDiscountApplied;
+    }
     
     @Override
     public double getProductPrice(String id){
@@ -51,9 +63,11 @@ public class ProductDatabase extends ProductStrategy implements DatabaseStrategy
 
     public double getProductPriceAfterdiscount(String id) {
         double prodPriceAfterDiscount= 0;
+        double prodDiscountPercent = 0;
         for(int i = 0; i< products.length; i++){
             if (productId.equals(products[i].getProductId())){
-                prodPriceAfterDiscount = 
+                prodPriceAfterDiscount = discountapplied.calculateProductPrice(productId, productPrice);
+                        
              
             }
         }

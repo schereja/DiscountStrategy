@@ -8,12 +8,13 @@ package discountstrategy;
  *
  * @author schereja
  */
-public abstract class DiscountStrategy{
+public abstract class DiscountStrategy extends ProductStrategy{
     
     private double productPrice;
     private double discountRate;
     private double qty;
     private ProductDatabase product;
+    private double productPriceAfterDiscount;
     
      /**
      * Calculates the product price after discount
@@ -24,11 +25,19 @@ public abstract class DiscountStrategy{
      */
     public double calculateProductPrice(String productId, double qty){
        product = new ProductDatabase(productId);
-        System.out.println(product.getProductDiscount(productId).getDiscountRate());
-       
-       
-       return 0.0;
+       System.out.println(product.getDiscountApplied(productId).getDiscountRate());
+       return 2;
+   
     }
+
+    public double getProductPriceAfterDiscount() {
+        return productPriceAfterDiscount;
+    }
+
+    public void setProductPriceAfterDiscount(double productPriceAfterDiscount) {
+        this.productPriceAfterDiscount = productPriceAfterDiscount;
+    }
+    
     public double getProductPrice() {
         return productPrice;
     }

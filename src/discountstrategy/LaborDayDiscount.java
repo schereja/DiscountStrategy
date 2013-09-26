@@ -10,8 +10,15 @@ package discountstrategy;
  */
 public class LaborDayDiscount extends DiscountStrategy{
       private double discountRate = 0.05;
-    public LaborDayDiscount(double productPrice) {
-        double priceAfterDiscount = productPrice - (productPrice* discountRate);
-        setProductPrice(priceAfterDiscount);
+      private double productPrice;
+    public LaborDayDiscount(double productPrice){
+        setProductPrice(productPrice);
+    }
+    public double getDiscountAmount(double price){
+        return price * discountRate;
+    }
+      @Override
+    public void setProductPrice(double productPrice){
+        this.productPrice = productPrice;
     }
 }

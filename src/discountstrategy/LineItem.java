@@ -15,7 +15,8 @@ public class LineItem extends ProductStrategy{
     private String productDescription;
     private int qty;
     private double productPrice;
-     private double productPriceAfterDiscount;
+    private DiscountStrategy productDiscountAmount;
+    private double productPriceAfterDiscount;
  
     public LineItem(String productId, int qty){
         setProductId(productId);
@@ -23,8 +24,15 @@ public class LineItem extends ProductStrategy{
         product = new ProductDatabase(productId);
     }
 
+    public DiscountStrategy getProductDiscountAmount() {
+        this.productDiscountAmount = product.getProductApplied(productID);
+        return productDiscountAmount;
+    }
+    
+    @Override
     public double getProductPriceAfterDiscount(String productID) {
-       this.productPriceAfterDiscount = product.calculateProductPrice(productID, productPrice);
+       this.productPriceAfterDiscount = product.getProductPriceAfterDiscount(productID);
+               
        return productPriceAfterDiscount;
     }
 
@@ -33,19 +41,12 @@ public class LineItem extends ProductStrategy{
     @Override
     public String getProductName(String productID) {
         this.productName = product.getName(productID);
-        
-        //if (productID == product.getProductName(productID)){
-        //    System.out.println("help");
-       // }
         return productName;
     }
     @Override
     public String getProductDescription(String productID) {
         this.productName = product.getProductDescription(productID);
-        
-        //if (productID == product.getProductName(productID)){
-        //    System.out.println("help");
-       // }
+     
         return productName;
     }
     @Override

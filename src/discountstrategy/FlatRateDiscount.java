@@ -10,9 +10,13 @@ package discountstrategy;
  */
 public class FlatRateDiscount extends DiscountStrategy{
     private double discountRate = 0.05;
+    
     public FlatRateDiscount(double productPrice) {
+        
+
         double priceAfterDiscount = productPrice - (productPrice* discountRate);
-        setProductPrice(priceAfterDiscount);
+       
+        setProductPriceAfterDiscount(priceAfterDiscount);
     }
     
     

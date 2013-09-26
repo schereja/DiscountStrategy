@@ -15,7 +15,7 @@ public abstract class ProductStrategy {
     private String productDescription;
     private double productPrice;
     private double productPriceAfterDiscount;
-    private DiscountStrategy discountAppled;
+    private DiscountStrategy discount;
     
    
     /*********
@@ -84,16 +84,13 @@ public abstract class ProductStrategy {
         if(discountApplied == null){
             throw new IllegalArgumentException("Please enter a valid discount.");
         }
-        this.discountAppled = discountApplied;
+        this.discount = discountApplied;
     }
-    
- 
-    public DiscountStrategy getProductDiscount(String id){
-        return discountAppled;
+    public DiscountStrategy getProductApplied(String id){
+        return discount;
     }
     public double getProductPrice(String id){
-        return productPrice;
-        
+        return productPrice; 
     }
     public String getProductDescription(String id){
         return productDescription;
@@ -105,4 +102,8 @@ public abstract class ProductStrategy {
         return productId;
         
     }
+    public double getProductPriceAfterDiscount(String id) {
+        return productPriceAfterDiscount;
+    }
+    
 }
