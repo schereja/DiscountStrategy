@@ -8,7 +8,7 @@ package discountstrategy;
  *
  * @author schereja
  */
-public class OnlineCustomer extends CustomerInformation{
+public class OnlineCustomer extends CustomerStrategy{
     private String customerId;
     private String customerName;
     

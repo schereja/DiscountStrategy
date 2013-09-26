@@ -8,23 +8,10 @@ package discountstrategy;
  *
  * @author schereja
  */
-public class LaborDayDiscount implements DiscountStrategy{
-private double discountRate = 0.25;
-    @Override
-    public double getDiscountRate() {
-        return discountRate;
+public class LaborDayDiscount extends DiscountStrategy{
+      private double discountRate = 0.05;
+    public LaborDayDiscount(double productPrice) {
+        double priceAfterDiscount = productPrice - (productPrice* discountRate);
+        setProductPrice(priceAfterDiscount);
     }
-
-    @Override
-    public void setDiscountRate(double discountPercent) {
-        
-        this.discountRate = discountPercent/100;
-    }
-
-    @Override
-    public double calculateProductDiscount(double price) {
-      return price * discountRate;
-    }
-
-    
 }

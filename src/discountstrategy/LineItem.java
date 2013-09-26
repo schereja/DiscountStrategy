@@ -8,69 +8,67 @@ package discountstrategy;
  *
  * @author schereja
  */
-public class LineItem extends ProductInformation{ 
+public class LineItem extends ProductStrategy{ 
     private ProductDatabase product;
+    private String productID;
+    private String productName;
+    private String productDescription;
     private int qty;
     private double productPrice;
+     private double productPriceAfterDiscount;
+ 
     public LineItem(String productId, int qty){
+        setProductId(productId);
+        setQty(qty);
         product = new ProductDatabase(productId);
-        calculateProductPrice(productId, qty);
-        System.out.println(productPrice);
+    }
+
+    public double getProductPriceAfterDiscount(String productID) {
+       this.productPriceAfterDiscount = product.calculateProductPrice(productID, productPrice);
+       return productPriceAfterDiscount;
+    }
+
+
+
+    @Override
+    public String getProductName(String productID) {
+        this.productName = product.getName(productID);
+        
+        //if (productID == product.getProductName(productID)){
+        //    System.out.println("help");
+       // }
+        return productName;
+    }
+    @Override
+    public String getProductDescription(String productID) {
+        this.productName = product.getProductDescription(productID);
+        
+        //if (productID == product.getProductName(productID)){
+        //    System.out.println("help");
+       // }
+        return productName;
+    }
+    @Override
+    public double getProductPrice(String productID){
+        this.productPrice = product.getProductPrice(productID);
+        return productPrice;
+                
         
     }
-    @Override
-    public void calculateProductPrice(String productId, double qty) {
-        this.productPrice = qty* product.getProductPrice(productId);
-      
+    public String getProductID() {
+        return productID;
     }
 
-    @Override
-    public void setProductPrice(double productPrice) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void setProductID(String productID) {
+        this.productID = productID;
     }
 
-    @Override
-    public void setProductDescription(String productDescription) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public int getQty() {
+        return qty;
     }
 
-    @Override
-    public void setProductName(String productName) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void setQty(int qty) {
+        this.qty = qty;
     }
-
-    @Override
-    public void setProductId(String productId) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void setProductDiscount(DiscountStrategy discountApplied) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public DiscountStrategy getProductDiscount() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public double getProductPrice() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public String getProductDescription() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public String getProductName() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public String getProductId() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+   
 }

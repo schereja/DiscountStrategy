@@ -8,23 +8,12 @@ package discountstrategy;
  *
  * @author schereja
  */
-public class FlatRateDiscount implements DiscountStrategy{
+public class FlatRateDiscount extends DiscountStrategy{
     private double discountRate = 0.05;
+    public FlatRateDiscount(double productPrice) {
+        double priceAfterDiscount = productPrice - (productPrice* discountRate);
+        setProductPrice(priceAfterDiscount);
+    }
     
-    @Override
-    public double getDiscountRate() {
-        return discountRate;
-    }
-
-    @Override
-    public void setDiscountRate(double discountPercent) {
-        
-        this.discountRate = discountPercent/100;
-    }
-
-    @Override
-    public double calculateProductDiscount(double price) {
-      return price * discountRate;
-    }
     
 }

@@ -8,7 +8,7 @@ package discountstrategy;
  *
  * @author schereja
  */
-public abstract class CustomerInformation {
+public abstract class CustomerStrategy {
     private String customerId;
     private String customerName;
     public void setCustomerId(String customerId) {

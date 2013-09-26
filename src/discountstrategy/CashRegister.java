@@ -10,7 +10,7 @@ package discountstrategy;
  */
 public class CashRegister {
   private double totalSales;
-  private ReceiptStrategy invoice;
+  private Receipt invoice;
   public CashRegister(){
       setTotalSales(0.00);
   }

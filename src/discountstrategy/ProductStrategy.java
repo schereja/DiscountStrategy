@@ -8,22 +8,16 @@ package discountstrategy;
  *
  * @author schereja
  */
-public abstract class ProductInformation {
+public abstract class ProductStrategy {
+    private ProductDatabase product;
     private String productId;
     private String productName;
     private String productDescription;
     private double productPrice;
+    private double productPriceAfterDiscount;
     private DiscountStrategy discountAppled;
-    /**
-     * Calculates the product price after discount
-     * 
-     * 
-     * @param productId
-     * @param qty 
-     */
-    public void calculateProductPrice(String productId, double qty){
-        setProductId(productId);
-    }
+    
+   
     /*********
      * Sets the product price to a different amount
      * *******
@@ -74,7 +68,7 @@ public abstract class ProductInformation {
     * @throws Error when product id is less or greater then 4
     */
     public void setProductId(String productId){
-        if(productId ==null || productId.length() < 4 || productId.length() > 4){
+        if(productId ==null){
             throw new IllegalArgumentException("Please enter a valid ID, use PXXXX as format.");
         }
             this.productId = productId;
@@ -94,18 +88,18 @@ public abstract class ProductInformation {
     }
     
  
-    public DiscountStrategy getProductDiscount(){
+    public DiscountStrategy getProductDiscount(String id){
         return discountAppled;
     }
-    public double getProductPrice(){
+    public double getProductPrice(String id){
         return productPrice;
         
     }
-    public String getProductDescription(){
+    public String getProductDescription(String id){
         return productDescription;
     }
-    public String getProductName(){
-        return productName;
+   public String getProductName(String id) {
+       return productName;
     }
     public String getProductId(){
         return productId;

@@ -8,7 +8,7 @@ package discountstrategy;
  *
  * @author schereja
  */
-public class StoreCustomer extends CustomerInformation{
+public class StoreCustomer extends CustomerStrategy{
 
      public StoreCustomer(String customerId, String customerName){
         setCustomerId(customerId);

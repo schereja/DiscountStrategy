@@ -10,14 +10,15 @@ package discountstrategy;
  */
 public class Receipt implements ReceiptStrategy{
     private CustomerDatabase customer;
-    private ReceiptStrategy[] lineItems;
+    private LineItem[] lineItems;
     private String customerName;
-    
+    private ProductStrategy product;
+    private double totalSales;
     public Receipt(String customerId){
         customer = new CustomerDatabase(customerId);
         System.out.println(customer.getName(customerId));
-        //lineItems = new LineItem[0];
-        
+        lineItems = new LineItem[0];
+        totalSales = 0.0;
     }
     @Override
     public double getTotal() {
@@ -27,27 +28,37 @@ public class Receipt implements ReceiptStrategy{
     @Override
     public String getReceipt() {
         String invoiceOutput = null;
-        for(int i = 0; i < lineItems.length; i++){
-            String prodID, prodName;
+        System.out.println("ID     Name     Description     Unit Price");
+        for(int i = 0; i <= lineItems.length - 1; i++){
+            String prodID, prodName, prodDesc;
+            double prodPrice, prodDiscount;
+            int qty;
+            prodID = lineItems[i].getProductId();
+            prodName = lineItems[i].getProductName(prodID);
+            prodPrice = lineItems[i].getProductPrice(prodID);
+            prodDesc = lineItems[i].getProductDescription(prodID);
+            //prodQty = lineItems[i].getQty();
+            prodDiscount = lineItems[i].getProductPriceAfterDiscount(prodID);
+            System.out.println(prodID + "   " + prodName + "   " + prodDesc + "   " + prodPrice + " " + prodDiscount);
+            totalSales += prodPrice;
             
                     
         }
-        System.out.println();
-       return "hello world";
+        System.out.println(totalSales);
+       return invoiceOutput;
     }
 
     @Override
     public final void addItem(String productId, int qty) {
-       // ReceiptStrategy newItem = new LineItem(productId, qty);
-        ReceiptStrategy[] tempArray = new ReceiptStrategy[lineItems.length+ 1];
+        LineItem newItem = new LineItem(productId, qty);
+        LineItem[] tempArray = new LineItem[lineItems.length+ 1];
         for(int i = 0;i<lineItems.length; i++){
             tempArray[i] = lineItems[i];
         }
-        //tempArray[tempArray.length - 1] = newItem;
+        tempArray[tempArray.length - 1] = newItem;
         
         lineItems = tempArray;
-                
-        
+                  
     }
     public String getCustomer(String customerId){
         this.customerName = customer.getName(customerId);

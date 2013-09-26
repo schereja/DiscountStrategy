@@ -8,7 +8,7 @@ package discountstrategy;
  *
  * @author schereja
  */
-public class ClothingProduct extends ProductInformation{
+public class ClothingProduct extends ProductStrategy{
     
     public ClothingProduct(String productId, String productName, 
             String productDescription, double productPrice, DiscountStrategy 

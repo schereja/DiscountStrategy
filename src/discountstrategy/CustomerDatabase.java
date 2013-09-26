@@ -15,7 +15,7 @@ public final class CustomerDatabase implements DatabaseStrategy{
     private String customerId;
     private String GET_NAME_ERROR = "Please enter valid customer ID.";
     
-    private CustomerInformation[] customers = {
+    private CustomerStrategy[] customers = {
         new OnlineCustomer("C1011", "Lynn"),
         new OnlineCustomer("C1012", "John"),
         new OnlineCustomer("C1013", "Jill"),

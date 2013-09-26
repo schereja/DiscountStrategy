@@ -8,26 +8,11 @@ package discountstrategy;
  *
  * @author schereja
  */
-public class QtyDiscount implements DiscountStrategy{
+public class QtyDiscount extends DiscountStrategy{
     private double discountRate = .05;
-    
     public QtyDiscount(int qty, double unitPrice){
+        setQty(qty);
+        setProductPrice(unitPrice);
         
     }
-    @Override
-    public double getDiscountRate() {
-        return discountRate;
-    }
-
-    @Override
-    public void setDiscountRate(double discountPercent) {
-        
-        this.discountRate = discountPercent/100;
-    }
-
-    @Override
-    public double calculateProductDiscount(double price) {
-      return price * discountRate;
-    }
-    
 }
