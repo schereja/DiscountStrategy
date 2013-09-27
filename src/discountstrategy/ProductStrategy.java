@@ -99,11 +99,9 @@ public abstract class ProductStrategy {
        return productName;
     }
     public String getProductId(){
-        return productId;
-        
+        return productId;   
     }
     public double getProductPriceAfterDiscount(String id) {
-        
         return productPriceAfterDiscount;
     }
     

@@ -9,10 +9,11 @@ package discountstrategy;
  * @author schereja
  */
 public class FlatRateDiscount extends DiscountStrategy{
-    private double discountRate = 0.05;
-    public FlatRateDiscount(double discountRate ){
-        setDiscountRate(discountRate);
+         private double discountRate = 0.05;
+    public FlatRateDiscount(double rate){
+        setDiscountRate(rate);
     }
+
     @Override
     public double getProductDiscountRate() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -20,7 +21,7 @@ public class FlatRateDiscount extends DiscountStrategy{
 
     @Override
     public double getProductDiscountAmt(double productPrice, int prodQty) {
-       return prodQty * productPrice * this.discountRate;
+        return (productPrice - (productPrice * discountRate))* prodQty;
     }
 
     @Override

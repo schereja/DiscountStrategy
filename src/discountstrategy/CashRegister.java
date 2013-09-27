@@ -25,7 +25,7 @@ public class CashRegister {
   }
   
   public final void endSale(){
-      
+    
   }
   
   public final void printInvoice(){
