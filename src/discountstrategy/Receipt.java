@@ -12,42 +12,48 @@ public class Receipt implements ReceiptStrategy{
     private CustomerDatabase customer;
     private LineItem[] lineItems;
     private String customerName;
-    private ProductStrategy product;
     private double totalSales;
-    
+    private double totalSalesAfterDiscount;
+    private String BUSINESS_NAME="Kohls";
+    private String BUSINESS_ADDRESS="5";
+    private String drawLINE="___________________________________________________________________________________\n";
     public Receipt(String customerId){
-        customer = new CustomerDatabase(customerId);
-        System.out.println(customer.getName(customerId));
+        this.customer = new CustomerDatabase(customerId);
         lineItems = new LineItem[0];
-        totalSales = 0.0;
+        this.totalSales = 0.0;
     }
     @Override
     public double getTotal() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return totalSales;
     }
 
     @Override
     public String getReceipt() {
-        String invoiceOutput = null;
-        System.out.println("ID\t Name\t\t     Description \t\t    Unit Price:\tQTY:\tPrice After Discount:");
+        StringBuilder invoiceOutput = new StringBuilder();
+        invoiceOutput.append(BUSINESS_NAME).append("\n").append(BUSINESS_ADDRESS).append("\n").append(drawLINE);
+        invoiceOutput.append("Thank you ").append(getCustomer(customerName)).append(" for shopping at ").append(BUSINESS_NAME).append("\n");
+        invoiceOutput.append("ID\t Name\t\t     Description \t   Unit Price:\tQTY:\tPrice After Discount:\n");
         for(int i = 0; i <= lineItems.length - 1; i++){
             String prodID, prodName, prodDesc;
-            double prodPrice, prodDiscount;
+            double prodPrice, prodDiscountPrice;
             int prodQty;
             prodID = lineItems[i].getProductId();
             prodName = lineItems[i].getProductName(prodID);
             prodPrice = lineItems[i].getProductPrice(prodID);
             prodDesc = lineItems[i].getProductDescription(prodID);
             prodQty = lineItems[i].getQty();
-            prodDiscount = lineItems[i].getProductPriceAfterDiscount(prodID);
+            prodDiscountPrice = lineItems[i].getProductPriceAfterDiscount(prodID);
      
-            System.out.println(prodID + "  \t " + prodName + " \t  " + prodDesc + " \t  " + prodPrice + "\t " + prodQty + " " +prodDiscount);
-            totalSales += prodPrice;
-            
+             invoiceOutput.append(prodID).append("  \t ").append(prodName).append(" \t  ").append(prodDesc).append(" \t  ").append(prodPrice).append("\t ").append(prodQty).append(" ").append(prodDiscountPrice).append("\n");
+            this.totalSales += (prodPrice*prodQty);
+            this.totalSalesAfterDiscount += prodDiscountPrice;
                     
         }
-        System.out.println("\t\t\t\t\t\t\t\t" + totalSales);
-       return invoiceOutput;
+        invoiceOutput.append(drawLINE).append("\t\t\t\t\t\t\t\tTotal: ").append(getTotal());
+        System.out.println(invoiceOutput);
+        System.out.println("\t\t\t\t\t\t\t\tYou saved: " + (getTotal()-this.totalSalesAfterDiscount));
+        System.out.println("\t\t\t\t\t\t\t\tTotal After Discount: " + totalSalesAfterDiscount);
+       return invoiceOutput.toString();
     }
 
     @Override
