@@ -12,11 +12,9 @@ public class LineItem extends ProductStrategy{
     private ProductDatabase product;
     private String productID;
     private String productName;
-    private String productDescription;
     private int qty;
     private double productPrice;
     private DiscountStrategy productDiscountAmount;
-    private double productPriceAfterDiscount;
  
     public LineItem(String productId, int qty){
         setProductId(productId);
@@ -31,13 +29,9 @@ public class LineItem extends ProductStrategy{
     
     @Override
     public double getProductPriceAfterDiscount(String productID) {
-       this.productPriceAfterDiscount = product.getProductPriceAfterDiscount(productID);
-               
-       return productPriceAfterDiscount;
+       productDiscountAmount = product.getDiscountApplied(productID);    
+       return productDiscountAmount.getProductDiscountAmt(productPrice, qty);
     }
-
-
-
     @Override
     public String getProductName(String productID) {
         this.productName = product.getName(productID);

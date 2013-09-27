@@ -23,12 +23,9 @@ public abstract class DiscountStrategy extends ProductStrategy{
      * @param productId
      * @param qty 
      */
-    public double calculateProductPrice(String productId, double qty){
-       product = new ProductDatabase(productId);
-       System.out.println(product.getDiscountApplied(productId).getDiscountRate());
-       return 2;
-   
-    }
+    public abstract double getProductDiscountRate();
+    public abstract double getProductDiscountAmt(double productPrice, int prodQty);
+    public abstract void setDiscountRate(double discountRate);
 
     public double getProductPriceAfterDiscount() {
         return productPriceAfterDiscount;
@@ -56,9 +53,7 @@ public abstract class DiscountStrategy extends ProductStrategy{
     
    
     public double getDiscountRate(){
+    
         return discountRate;
-    }
-    public void setDiscountRate(double discountPercent){
-        
     }
 }

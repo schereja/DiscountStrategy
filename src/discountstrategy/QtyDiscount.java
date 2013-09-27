@@ -15,4 +15,19 @@ public class QtyDiscount extends DiscountStrategy{
         setProductPrice(unitPrice);
         
     }
+
+    @Override
+    public double getProductDiscountRate() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public double getProductDiscountAmt(double productPrice, int prodQty) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setDiscountRate(double discountRate) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

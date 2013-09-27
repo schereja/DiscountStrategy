@@ -10,15 +10,23 @@ package discountstrategy;
  */
 public class LaborDayDiscount extends DiscountStrategy{
       private double discountRate = 0.05;
-      private double productPrice;
-    public LaborDayDiscount(double productPrice){
-        setProductPrice(productPrice);
+    public LaborDayDiscount(double rate){
+        setDiscountRate(rate);
     }
-    public double getDiscountAmount(double price){
-        return price * discountRate;
+
+    @Override
+    public double getProductDiscountRate() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-      @Override
-    public void setProductPrice(double productPrice){
-        this.productPrice = productPrice;
+
+    @Override
+    public double getProductDiscountAmt(double productPrice, int prodQty) {
+        return (productPrice - (productPrice * discountRate))* prodQty;
     }
+
+    @Override
+    public void setDiscountRate(double discountRate) {
+        this.discountRate = discountRate;
+    }
+   
 }

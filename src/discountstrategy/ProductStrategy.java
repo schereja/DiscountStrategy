@@ -103,6 +103,7 @@ public abstract class ProductStrategy {
         
     }
     public double getProductPriceAfterDiscount(String id) {
+        
         return productPriceAfterDiscount;
     }
     

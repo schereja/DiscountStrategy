@@ -10,14 +10,25 @@ package discountstrategy;
  */
 public class FlatRateDiscount extends DiscountStrategy{
     private double discountRate = 0.05;
-    
-    public FlatRateDiscount(double productPrice) {
-        
+    public FlatRateDiscount(double discountRate ){
+        setDiscountRate(discountRate);
+    }
+    @Override
+    public double getProductDiscountRate() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 
-        double priceAfterDiscount = productPrice - (productPrice* discountRate);
-       
-        setProductPriceAfterDiscount(priceAfterDiscount);
+    @Override
+    public double getProductDiscountAmt(double productPrice, int prodQty) {
+       return prodQty * productPrice * this.discountRate;
+    }
+
+    @Override
+    public void setDiscountRate(double discountRate) {
+        this.discountRate = discountRate;
     }
     
+   
     
+
 }

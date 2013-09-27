@@ -20,15 +20,15 @@ public class ProductDatabase extends ProductStrategy implements DatabaseStrategy
         setId(productId);
     }
     private ProductStrategy[] products = {
-        new ClothingProduct("P1011", "Big Bang Shirt", "Shirt with Big Bang Theory on it.", 12.00, new LaborDayDiscount(productPrice)),
-        new ClothingProduct("P1012", "Shorts", "Adult Shorts", 25.00, new FlatRateDiscount(productPrice)),
-        new ClothingProduct("P1013", "Diamond Tie", "Tie with Diamonds", 10.00, new LaborDayDiscount(productPrice)),
-        new ClothingProduct("P1014", "Nike Shoes", "Nike Shoes", 12.00, new FlatRateDiscount(productPrice))
+        new ClothingProduct("P1011", "Big Bang Shirt", "Shirt with Big Bang Theory on it.", 12.00, new LaborDayDiscount(.05)),
+        new ClothingProduct("P1012", "Shorts", "Adult Shorts", 25.00, new FlatRateDiscount(.05)),
+        new ClothingProduct("P1013", "Diamond Tie", "Tie with Diamonds", 10.00, new LaborDayDiscount(.05)),
+        new ClothingProduct("P1014", "Nike Shoes", "Nike Shoes", 12.00, new FlatRateDiscount(.05))
         };
 
     public DiscountStrategy getDiscountApplied(String id) {
         DiscountStrategy productDiscountApplied = null;
-        double prodDiscountRate;
+        
         for(int i = 0; i< products.length; i++){
             if (productId.equals(products[i].getProductId())){
                 productDiscountApplied = products[i].getProductApplied(productId);
@@ -59,19 +59,6 @@ public class ProductDatabase extends ProductStrategy implements DatabaseStrategy
             }
         }
         return prodDesc;
-    }
-
-    public double getProductPriceAfterdiscount(String id) {
-        double prodPriceAfterDiscount= 0;
-        double prodDiscountPercent = 0;
-        for(int i = 0; i< products.length; i++){
-            if (productId.equals(products[i].getProductId())){
-                prodPriceAfterDiscount = discountapplied.calculateProductPrice(productId, productPrice);
-                        
-             
-            }
-        }
-        return prodPriceAfterDiscount;
     }
     
     /*********
