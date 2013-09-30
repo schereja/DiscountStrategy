@@ -23,9 +23,8 @@ public class StartUp {
         cr.addNewLineItem("P1012", 3);
         cr.addNewLineItem("P1013", 5);
         cr.addNewLineItem("P1014", 10);
-        cr.printInvoice();
-        /*
         cr.endSale();
+        /*
         cr.printInvoice();*/
     }
 }

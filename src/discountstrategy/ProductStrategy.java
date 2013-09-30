@@ -9,7 +9,7 @@ package discountstrategy;
  * @author schereja
  */
 public abstract class ProductStrategy {
-    private ProductDatabase product;
+    
     private String productId;
     private String productName;
     private String productDescription;
@@ -86,21 +86,57 @@ public abstract class ProductStrategy {
         }
         this.discount = discountApplied;
     }
+   /**
+    * Gets product discount applied
+    * 
+    * @param id
+    * @return discount
+    */
     public DiscountStrategy getProductApplied(String id){
         return discount;
     }
+    /**
+     * Gets the product price
+     * 
+     * @param id
+     * @return productPrice
+     */
     public double getProductPrice(String id){
         return productPrice; 
     }
+    /**
+     * Gets the product description
+     * 
+     * @param id
+     * @return product description
+     */
     public String getProductDescription(String id){
         return productDescription;
     }
+    /**
+     * Gets the product name
+     * 
+     * @param id
+     * @return productName
+     */
    public String getProductName(String id) {
        return productName;
     }
+   /**
+    * Gets the productID
+    * 
+    * @return productId
+    */
     public String getProductId(){
         return productId;   
     }
+    /**
+     * Gets the product price after discount
+     * 
+     * 
+     * @param id
+     * @return productPriceAfterDiscount
+     */
     public double getProductPriceAfterDiscount(String id) {
         return productPriceAfterDiscount;
     }

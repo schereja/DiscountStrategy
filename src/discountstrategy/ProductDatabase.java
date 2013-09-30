@@ -8,14 +8,12 @@ package discountstrategy;
  *
  * @author schereja
  */
-public class ProductDatabase extends ProductStrategy implements DatabaseStrategy{
-    private String productId;
+public final class ProductDatabase extends ProductStrategy implements DatabaseStrategy{
+   private String productId;
     private String productName;
-    private String productDescription;
-    private double productPrice;
-    private double productPriceAfterdiscount;
-    private DiscountStrategy discountapplied;
-    
+    private int MIN_NAME_LENGTH = 2;
+    private String NAME_LENGTH_ERROR = "Please enter a product name longer then 2 characters";
+    private String ID_LENGTH_ERROR = "Please enter an ID in the format of PXXXX.";
     public ProductDatabase(String productId){
         setId(productId);
     }
@@ -28,7 +26,6 @@ public class ProductDatabase extends ProductStrategy implements DatabaseStrategy
 
     public DiscountStrategy getDiscountApplied(String id) {
         DiscountStrategy productDiscountApplied = null;
-        
         for(int i = 0; i< products.length; i++){
             if (productId.equals(products[i].getProductId())){
                 productDiscountApplied = products[i].getProductApplied(productId);
@@ -55,7 +52,6 @@ public class ProductDatabase extends ProductStrategy implements DatabaseStrategy
         for(int i = 0; i< products.length; i++){
             if (productId.equals(products[i].getProductId())){
                 prodDesc = products[i].getProductDescription(id);
-             
             }
         }
         return prodDesc;
@@ -96,7 +92,9 @@ public class ProductDatabase extends ProductStrategy implements DatabaseStrategy
      */
     @Override
     public void setId(String id) {
-        this.productId = id;
+        if(id== null || id.length() != 5){
+            throw new IllegalArgumentException(ID_LENGTH_ERROR);
+        }else this.productId = id;
     }
     /********
      * Sets the name of the product
@@ -105,7 +103,9 @@ public class ProductDatabase extends ProductStrategy implements DatabaseStrategy
      */
     @Override
     public void setName(String name) {
-        this.productName = name;
+        if(name == null || name.length() < MIN_NAME_LENGTH){
+            throw new IllegalArgumentException(NAME_LENGTH_ERROR);
+        } else this.productName = name;
     }
     /********
      * Remove product from database

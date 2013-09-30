@@ -8,31 +8,41 @@ package discountstrategy;
  *
  * @author schereja
  */
-public class CashRegister {
-  private double totalSales;
+public final class CashRegister {
   private Receipt invoice;
+  /**
+   * Basic Constructor, keeping in for later if adding more at later date.
+   * 
+   * 
+   */
   public CashRegister(){
-      setTotalSales(0.00);
   }
+  /********
+   * Begins a new sale with a customer.
+   * ******
+   * @param customerId 
+   */
   public void startNewSale(String customerId){
       invoice = new Receipt(customerId);
- 
   }
-  
+  /********
+   * Adds items to the line items
+   * ******
+   * 
+   * @param productId
+   * @param qty 
+   */
   public void addNewLineItem(String productId, int qty){
       invoice.addItem(productId, qty);
       
   }
-  
+  /*********
+   * Ends the sale and gets the receipt.
+   * *******
+   * 
+   * 
+   */
   public final void endSale(){
-    
+    invoice.getReceipt();
   }
-  
-  public final void printInvoice(){
-      invoice.getReceipt();
-      
-  }
-   public void setTotalSales(double totalSales){
-       this.totalSales = totalSales;
-   }
 }

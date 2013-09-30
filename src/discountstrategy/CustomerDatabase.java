@@ -13,8 +13,8 @@ package discountstrategy;
 public final class CustomerDatabase implements DatabaseStrategy{
     private String customerName;
     private String customerId;
-    private String GET_NAME_ERROR = "Please enter valid customer ID.";
-    
+    private String CUSTOMER_ID_ERROR = "Please enter valid customer ID.";
+    private String CUSTOMER_NAME_ERROR = "Please enter a valid customer name.";
     private CustomerStrategy[] customers = {
         new OnlineCustomer("C1011", "Lynn"),
         new OnlineCustomer("C1012", "John"),
@@ -67,7 +67,7 @@ public final class CustomerDatabase implements DatabaseStrategy{
     @Override
     public void setId(String id) {
         if(id == null || id.length() == 0){
-            throw new IllegalArgumentException("Please enter a valid customer ID");
+            throw new IllegalArgumentException(CUSTOMER_ID_ERROR);
         }
        this.customerId = id;
     }
@@ -81,22 +81,18 @@ public final class CustomerDatabase implements DatabaseStrategy{
     @Override
     public void setName(String name) {
          if(name == null || name.length() < 1){
-            throw new IllegalArgumentException("Please enter a valid customer name");
+            throw new IllegalArgumentException(CUSTOMER_NAME_ERROR);
         }
         this.customerName = name;
                 }
-    /*********
-     * Remove customer from database.
-     * *******
-     * ToDo: Code method to be able to delete customer from database
+    /**
+     * Still need to program will remove a customer from the database.
      * 
-     * *******
+     * 
      * @param Id 
-     *  
      */
     @Override
     public void removeFromDatabase(String Id) {
-        
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

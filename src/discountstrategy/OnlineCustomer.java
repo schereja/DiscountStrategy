@@ -9,14 +9,9 @@ package discountstrategy;
  * @author schereja
  */
 public class OnlineCustomer extends CustomerStrategy{
-    private String customerId;
-    private String customerName;
     
     public OnlineCustomer(String customerId, String customerName){
         setCustomerId(customerId);
         setCustomerName(customerName);
     }
-  
-    
-    
 }
