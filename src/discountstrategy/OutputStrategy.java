@@ -8,6 +8,7 @@ package discountstrategy;
  *
  * @author schereja
  */
-public class OutputStrategy {
-    
+public abstract class OutputStrategy{
+    public abstract void displayReceipt();
+   
 }

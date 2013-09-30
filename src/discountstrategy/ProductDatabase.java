@@ -18,10 +18,10 @@ public final class ProductDatabase extends ProductStrategy implements DatabaseSt
         setId(productId);
     }
     private ProductStrategy[] products = {
-        new ClothingProduct("P1011", "Big Bang Shirt", "Shirt with Big Bang Theory on it.", 12.00, new LaborDayDiscount(.05)),
-        new ClothingProduct("P1012", "Shorts", "Adult Shorts", 25.00, new FlatRateDiscount(.05)),
-        new ClothingProduct("P1013", "Diamond Tie", "Tie with Diamonds", 10.00, new LaborDayDiscount(.05)),
-        new ClothingProduct("P1014", "Nike Shoes", "Nike Shoes", 12.00, new FlatRateDiscount(.05))
+        new ClothingProduct("P1011", "Shirt", "Big Bang", 12.00, new LaborDayDiscount(.05)),
+        new ClothingProduct("P1012", "Shorts", "Adult shorts", 25.00, new FlatRateDiscount(.05)),
+        new ClothingProduct("P1013", "Tie", "Diamonds", 10.00, new LaborDayDiscount(.05)),
+        new ClothingProduct("P1014", "Show", "Nike Shoes", 12.00, new FlatRateDiscount(.05))
         };
 
     public DiscountStrategy getDiscountApplied(String id) {

@@ -10,6 +10,7 @@ package discountstrategy;
  */
 public final class CashRegister {
   private Receipt invoice;
+  private String data;
   /**
    * Basic Constructor, keeping in for later if adding more at later date.
    * 
@@ -43,6 +44,10 @@ public final class CashRegister {
    * 
    */
   public final void endSale(){
-    invoice.getReceipt();
+      
+    data = invoice.getReceipt();
+  }
+  public final void printInvoice(){
+      invoice.printReceipt();
   }
 }
