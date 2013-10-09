@@ -5,6 +5,8 @@
 package discountstrategy;
 
 import java.text.NumberFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 /**
  *
@@ -12,7 +14,10 @@ import java.text.NumberFormat;
  */
 public class Receipt implements ReceiptStrategy{
     private String data;
+    private Calendar calendar = Calendar.getInstance();
     private OutputStrategy outputInvoice;
+    private String format = "M/d/yyyy hh:mm:ss a";
+    private SimpleDateFormat formattedDate = new SimpleDateFormat(format);
     private CustomerDatabase customer;
     private LineItem[] lineItems;
     private String customerName;
@@ -36,7 +41,7 @@ public class Receipt implements ReceiptStrategy{
         NumberFormat nf = NumberFormat.getCurrencyInstance();
         StringBuilder invoiceOutput = new StringBuilder();
         invoiceOutput.append(BUSINESS_NAME).append("\n").append(BUSINESS_ADDRESS).append("\n").append(drawLINE);
-        invoiceOutput.append("Thank you ").append(getCustomer(customerName)).append(" for shopping at ").append(BUSINESS_NAME).append("\n");
+        invoiceOutput.append("Thank you ").append(getCustomer(customerName)).append(" for shopping at ").append(BUSINESS_NAME).append("\n").append(formattedDate.format(calendar.getTime())).append("\n");
         invoiceOutput.append(drawLINE);
         invoiceOutput.append("ID\tName\t\tDescription\tUnit Price:\tQTY:\tDiscount Price:\n");
         for(int i = 0; i <= lineItems.length - 1; i++){
