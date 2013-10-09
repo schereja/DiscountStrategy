@@ -17,21 +17,23 @@ public final class ConsoleOutput extends OutputStrategy{
      * @param data 
      * @throws IllegalArgumentException if data invalid or less then 1 character
      */
-    public ConsoleOutput(String data){
-        if(data ==null || data.length() <1){
-            throw new  IllegalArgumentException(INPUT_DATA_ERROR);
-        } else {
-            this.data = data;
-            displayReceipt();
-        }
+    public ConsoleOutput(){
+        displayReceipt();
     }
     /**
      * Displays the output from the receipt.
      * 
      */
+    
     @Override
     public void displayReceipt() {
-        System.out.println(data);
+        System.out.print(data);
     }
-    
+    @Override
+    public void setData(String data){
+        if(data == null || data.length() < 0){
+            throw new IllegalArgumentException("NEED TO CODE THIS ERROR");
+        } else this.data = data;
+        
+    }
 }

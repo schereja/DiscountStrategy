@@ -10,5 +10,6 @@ package discountstrategy;
  */
 public abstract class OutputStrategy{
     public abstract void displayReceipt();
+    public abstract void setData(String data);
    
 }

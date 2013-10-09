@@ -4,6 +4,7 @@
  */
 package discountstrategy;
 
+import com.sun.org.apache.xml.internal.serializer.OutputPropertiesFactory;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -15,7 +16,7 @@ import java.util.Calendar;
 public class Receipt implements ReceiptStrategy{
     private String data;
     private Calendar calendar = Calendar.getInstance();
-    private OutputStrategy outputInvoice;
+    private OutputStrategy outputInvoice = AbstractFactory.getOutputInstance(AbstractFactory.Outputs.CONSOLE);
     private String format = "M/d/yyyy hh:mm:ss a";
     private SimpleDateFormat formattedDate = new SimpleDateFormat(format);
     private CustomerDatabase customer;
@@ -81,7 +82,8 @@ public class Receipt implements ReceiptStrategy{
         return customer.getName(customerId);
     }
     public void printReceipt(){
-      outputInvoice = new ConsoleOutput(data);
+      outputInvoice.setData(data);
+      outputInvoice.displayReceipt();
     }
     
 }
